@@ -6,6 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.appturnos.models.Turno;
 
@@ -39,19 +40,25 @@ public class Turnos extends AppCompatActivity {
         for (Turno turno : turnos) {
             LinearLayout turnoLayout = new LinearLayout(this);
             turnoLayout.setOrientation(LinearLayout.VERTICAL);
+            turnoLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.turno_background));
 
             TextView titulo = new TextView(this);
             titulo.setText(turno.getTitulo());
             titulo.setTextSize(18f);
+            titulo.setTextColor(ContextCompat.getColor(this, R.color.black));
             titulo.setTypeface(null, Typeface.BOLD);
 
             TextView subtitulo = new TextView(this);
             subtitulo.setText(turno.getHorario());
             subtitulo.setTextSize(16f);
+            subtitulo.setTextColor(ContextCompat.getColor(this, R.color.black));
+
 
             TextView body = new TextView(this);
             body.setText(turno.getDireccion());
             body.setTextSize(14f);
+            body.setTextColor(ContextCompat.getColor(this, R.color.black));
+
 
             turnoLayout.addView(titulo);
             turnoLayout.addView(subtitulo);
@@ -59,7 +66,7 @@ public class Turnos extends AppCompatActivity {
 
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            layoutParams.setMargins(40, 20, 0, 20);
+            layoutParams.setMargins(40, 0, 0, 0);
             turnoLayout.setLayoutParams(layoutParams);
 
             container.addView(turnoLayout);
